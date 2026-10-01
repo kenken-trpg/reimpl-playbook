@@ -6,13 +6,13 @@
 # for a moment, pip reports it the same way it reports a real mistake:
 #
 #   ERROR: Could not find a version that satisfies the requirement
-#          pydantic-core==2.46.5 (from pydantic) (from versions: none)
+#          some-transitive-dep==2.46.5 (from somepkg) (from versions: none)
 #
 # "from versions: none" is the tell — not "this pin is unsatisfiable" but "the
-# index returned nothing at all". That failure turned CI red on PR #179 with a
-# requirements.txt that had worked minutes earlier on PR #178, and no version
-# constraint here could have prevented it: the wheels it could not see exist,
-# for every interpreter in the matrix.
+# index returned nothing at all". It has turned CI red on a requirements file
+# that had worked minutes earlier on the PR before it, and no version
+# constraint could have prevented it: the wheels it could not see exist, for
+# every interpreter in the matrix.
 #
 # So the answer is to ask again rather than to pin harder. Waiting between
 # tries is the point — the gaps are seconds-to-minutes, so 15s and then 60s.

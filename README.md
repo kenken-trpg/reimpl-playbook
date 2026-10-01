@@ -3,9 +3,9 @@
 既存のプログラムを**別のフレームワークで作り直す**案件のための、
 方法・雛形・動くツール一式。
 
-`chummer-web`（C# / WinForms のデスクトップアプリ → Python + TypeScript の Web アプリ、
-実セーブ 34 件・テスト 1830 件）で実際に効いたものだけを抽象化してある。
-事例は [`docs/case-study.md`](docs/case-study.md)。
+規則の多いデスクトップアプリ（C#）を Web アプリ（Python + TypeScript）に
+作り直す案件で実際に効いたものだけを残してある。
+一つの案件で何が起きたかは [`docs/case-study.md`](docs/case-study.md)。
 
 ## 読む順
 
@@ -70,3 +70,7 @@ tests/       tools 自身のテスト
 
 3 が一番短い。`example/adapter.py` は全部入りで 160 行で、
 実案件でもこの桁から大きくは外れない。
+
+## ライセンス
+
+MIT。`tools/` はコピーして使う前提で書いてある。

@@ -1,8 +1,9 @@
 """How much of the reference's vocabulary the subject actually handles.
 
 Every reimplementation of a rules-heavy program ends up with the same shape:
-the reference expresses behaviour as tagged nodes in its data (`<bonus>`
-children, effect codes, modifier keys), there are hundreds of distinct tags,
+the reference expresses behaviour as tagged nodes in its data (the children
+of a `<modifier>` element, effect codes, bonus keys), there are hundreds of
+distinct tags,
 and the subject implements them a handful at a time.
 
 The temptation is a hand-written table of "implemented tags". Do not: it

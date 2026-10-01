@@ -98,8 +98,8 @@ for pair in "$@"; do
   done
   [ "$seen" = "$head" ] || { echo "STOP: GitHub still does not see the push after 1 min"; exit 1; }
   # Wait for every check to report, and require all of them green, BEFORE
-  # handing the PR to auto-merge. The other order merged #276 with
-  # `backend-windows` red: a STOP here is only this script exiting, while
+  # handing the PR to auto-merge. The other order merged a PR with one of its
+  # non-required jobs red: a STOP here is only this script exiting, while
   # `--auto` is an instruction GitHub keeps and acts on, and GitHub waits for
   # the checks branch protection calls *required* — not for the ones this loop
   # reads. Arming it only once everything has reported means the two cannot

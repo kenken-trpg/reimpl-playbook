@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+# The reference implementation's own files are fetched, never committed.
+vendor/
+.pytest_cache/

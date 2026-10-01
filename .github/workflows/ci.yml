@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tools:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # Dependency installs are the one step worth retrying: a registry that
+      # serves an empty index for a moment reports it exactly like a real
+      # mistake. See docs/07-ops.md.
+      - run: ./tools/ops/retry.sh python -m pip install pytest
+      - run: python -m pytest -q tests
+
+      # The harness gates on the checks that START clean and must stay clean.
+      # `balance` is deliberately not here: it is a reading worked down over
+      # months, and a gate that is always red is not a gate.
+      - name: The example stays round-trip clean and export-faithful
+        run: make check
+
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: A code change carries a changelog fragment
+        if: github.event_name == 'pull_request'
+        run: |
+          python tools/ops/changelog.py check-pr \
+            "origin/${{ github.base_ref }}" \
+            "${{ github.event.pull_request.title }}" \
+            "${{ github.event.pull_request.user.login }}"

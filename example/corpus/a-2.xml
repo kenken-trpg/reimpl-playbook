@@ -1,0 +1,12 @@
+<invoice>
+  <id>A-2</id>
+  <mode>final</mode>
+  <customer>Beta Works</customer>
+  <currency>JPY</currency>
+  <taxrate>0.08</taxrate>
+  <total>540</total>
+  <printedat>2026-01-04T11:30:00</printedat>
+  <items>
+    <item><sku>WASHER</sku><qty>5</qty><unit>100</unit></item>
+  </items>
+</invoice>

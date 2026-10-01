@@ -1,0 +1,12 @@
+<invoice>
+  <id>DRAFT-7</id>
+  <mode>draft</mode>
+  <customer>Gamma GmbH</customer>
+  <currency>JPY</currency>
+  <taxrate>0.1</taxrate>
+  <total>0</total>
+  <printedat></printedat>
+  <items>
+    <item><sku>PLATE</sku><qty>3</qty><unit>2500</unit></item>
+  </items>
+</invoice>

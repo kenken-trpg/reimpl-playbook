@@ -1,0 +1,13 @@
+<invoice>
+  <id>A-1</id>
+  <mode>final</mode>
+  <customer>Acme Shipping</customer>
+  <currency>JPY</currency>
+  <taxrate>0.1</taxrate>
+  <total>3300</total>
+  <printedat>2026-01-01T09:00:00</printedat>
+  <items>
+    <item><sku>BOLT-M4</sku><qty>2</qty><unit>1000</unit></item>
+    <item><sku>NUT-M4</sku><qty>1</qty><unit>1000</unit></item>
+  </items>
+</invoice>
